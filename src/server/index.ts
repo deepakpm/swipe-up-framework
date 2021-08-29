@@ -1,9 +1,11 @@
 import express, { Express, Router } from "express";
+export * from './router-config'
 
 export class AppServer {
   private app: Express;
   constructor(private port: number) {
     this.app = express();
+    Object.setPrototypeOf(this, AppServer.prototype);
   }
 
   addMiddlewares(...args: []) {
@@ -22,5 +24,5 @@ export class AppServer {
   private defaultCallBack() {
     console.log(`Server running on ${this.port}`);
   }
-  
+
 }
