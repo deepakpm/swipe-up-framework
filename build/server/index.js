@@ -36,6 +36,9 @@ var AppServer = /** @class */ (function () {
         if (path === void 0) { path = "/api"; }
         this.app.use(path, router);
     };
+    AppServer.prototype.setJsonBodyParser = function () {
+        this.app.use(express_1.default.json());
+    };
     AppServer.prototype.start = function (callback) {
         if (callback === void 0) { callback = this.defaultCallBack; }
         this.app.listen(this.port, callback);
