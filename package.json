@@ -1,14 +1,16 @@
 {
-  "name": "swipe-up-framework",
-  "version": "1.0.0",
+  "name": "@swipeup/swipe-up-framework",
+  "version": "0.0.8",
   "description": "",
-  "main": ".build/index.js",
+  "main": "./build/index.js",
   "types": "./build/index.d.ts",
   "files": [
     "build/**/*"
   ],
   "scripts": {
-    "build": "tsc"
+    "build": "tsc",
+    "clean": "del build",
+    "pub": "npm version patch --no-git-tag-version && npm run build && npm publish"
   },
   "keywords": [],
   "author": "",
