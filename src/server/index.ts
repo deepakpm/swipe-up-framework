@@ -13,9 +13,12 @@ export class AppServer {
       this.app.use(arg);
     }
   }
-
-  register(router: Router, path: string = "/api") {
+  register(router: ()=>void, path: string = "/api") {
     this.app.use(path, router);
+  }
+
+  setJsonBodyParser(){
+    this.app.use(express.json())
   }
 
   start(callback: () => void = this.defaultCallBack) {
