@@ -14,28 +14,35 @@ var AppRouter = /** @class */ (function () {
         if (!AppRouter.appRouter) {
             AppRouter.appRouter = new AppRouter();
         }
+        return AppRouter.appRouter;
     };
-    AppRouter.prototype.registerRouter = function (httpMethod, path, controller) {
+    AppRouter.prototype.registerRouter = function (httpMethod, path) {
+        var handler = [];
+        for (var _i = 2; _i < arguments.length; _i++) {
+            handler[_i - 2] = arguments[_i];
+        }
         switch (httpMethod) {
-            case "DELETE":
-                this.router.delete(path, controller);
-                break;
             case "GET":
-                this.router.get(path, controller);
+                this.router.get(path, handler);
+                break;
+            case "DELETE":
+                this.router.delete(path, handler);
                 break;
             case "PATCH":
-                this.router.patch(path, controller);
+                this.router.patch(path, handler);
                 break;
             case "POST":
-                this.router.post(path, controller);
+                this.router.post(path, handler);
                 break;
             case "PUT":
-                this.router.put(path, controller);
+                this.router.put(path, handler);
                 break;
             default:
-                this.router.get(path, controller);
+                this.router.get(path, handler);
                 break;
         }
+    };
+    AppRouter.prototype.getRouter = function () {
         return this.router;
     };
     return AppRouter;

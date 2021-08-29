@@ -13,4 +13,3 @@ Object.defineProperty(exports, "__esModule", { value: true });
 __exportStar(require("./utls/constants/environment"), exports);
 __exportStar(require("./errors"), exports);
 __exportStar(require("./midlewares"), exports);
-__exportStar(require("./server"), exports);
