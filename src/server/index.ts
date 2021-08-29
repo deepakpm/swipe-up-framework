@@ -8,7 +8,7 @@ export class AppServer {
     Object.setPrototypeOf(this, AppServer.prototype);
   }
 
-  addMiddlewares(...args: []) {
+  addMiddlewares(...args:any[]) {
     for (const arg of args) {
       this.app.use(arg);
     }
@@ -26,3 +26,4 @@ export class AppServer {
   }
 
 }
+
